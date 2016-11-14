@@ -1,6 +1,6 @@
 <?php
 $pagetitle="Search Report";
-include "includes/header.php"; 
+include "header.php"; 
 error_reporting(E_ALL ^ E_DEPRECATED);
 $name=$_POST['name'];
 //$session=$_POST['session'];
@@ -12,14 +12,11 @@ include("config.php");
 
 ?>
 <div class="container">
- <div class="row">
-                    <div class="templatemo-line-header" style="margin-top: 0px;" >
+              <div class="row">
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="span_blog txt_darkgrey txt_orange">Individual Report </span>
-                            <hr class="team_hr team_hr_right hr_gray" />
+                          <h1>Individual Searching</h1>
                         </div>
-                    </div>
-                </div>
+                </div>  
 	<div class="table-responsive">
                  <table class="ui celled table table table-hover">
                   <thead>

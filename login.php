@@ -22,31 +22,28 @@ session_start();
           $_SESSION['id']=$userId;
           header('Location:home.php');
         }else{
-            echo "<span style='color:red;'>User name or password is incorrect!</span>";
+            echo "<span style='color:blue;'>Please Enter Correct User Name and Password!!!!!!</span>";
           }    
 } 
 ?>
-        <link href="css/bootstrap.css" rel='stylesheet' type='text/css'>
-        <link href="css/semantic.min.css" rel="stylesheet">
-        <link href="css/templatemo_style.css"  rel='stylesheet' type='text/css'>
-        <link href="css/mystyle.css"  rel='stylesheet' type='text/css'> 
-<div class="container">
+        <link href="css/bootstrap.css" rel='stylesheet' type='text/css'>   
+<div class="container" style="background:white">
 
-               <div class="row">
+               <div class="row>
                     <div class="templatemo-line-header" style="margin-top: 40px;" >
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="span_blog txt_darkgrey txt_orange">Welcome to LOG IN</span>
-                            <hr class="team_hr team_hr_right hr_gray" />
+                            <hr  class="team_hr team_hr_left hr_red"/><span class="span_blog txt_red txt_red">Welcome to Attendance Mangement System</span>
+                            <hr class="team_hr team_hr_right hr_red" />
                         </div>
                     </div>
                 </div>
  </div>
-     <div class="container">
+     <div class="container" >
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title">Sign In</h3>
                     </div>
                     <div class="panel-body">
                         <form role="form" method="post" action="login.php">
@@ -55,9 +52,6 @@ session_start();
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                                </div>
-                                <div class="checkbox">
-                                    <label> <input name="remember" type="checkbox" value="Remember Me">Remember Me</label>
                                 </div>
                                 <button type="submit" name="submit" value="login" class="btn btn-lg btn-success btn-block">Login</button>  
                         </form>

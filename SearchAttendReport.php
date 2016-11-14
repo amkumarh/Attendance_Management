@@ -1,14 +1,11 @@
 <?php
   $pagetitle="student Report";
-  include "includes/header.php"; ?>
+  include "header.php"; ?>
   <div class="container">
-         <div class="row">
-                 <div class="templatemo-line-header" style="margin-top: 0px;" >
+              <div class="row">
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="span_blog txt_darkgrey txt_orange">Individual Searching</span>
-                            <hr class="team_hr team_hr_right hr_gray" />
+                          <h1>Individual Searching</h1>
                         </div>
-                    </div>
                 </div>
 <?php
 error_reporting(E_ALL ^ E_DEPRECATED);
@@ -36,21 +33,9 @@ include("config.php");
          </div>
 
         
-        
-          <?php
-          /*
-          $qs1=mysql_query("select * from student_table");	
-          echo "<select name='session' class='form-control'>";			
-          while($session=mysql_fetch_row($qs1))
-          {		
-          		
-           echo"<option value=$session[7]>$session[7] </option>";
-           }
-          echo "</select>";
-          */
-          ?>
-          <div class="col-lg-8"><br>
-          <button type="submit" class="btn btn-success btn-lg btn-block" value="Search" name="search">Search</button>
+  
+          <div><br>
+          <button type="submit"  value="Search" name="search">Search</button>
           </div>
           </div>
 

@@ -1,15 +1,12 @@
 <?php
   $pagetitle="student Report";
-  include "includes/header.php"; ?>
+  include "header.php"; ?>
   <div class="container">
-  <div class="row">
-                    <div class="templatemo-line-header" style="margin-top: 0px;" >
+              <div class="row">
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="span_blog txt_darkgrey txt_orange">Attendance Report</span>
-                            <hr class="team_hr team_hr_right hr_gray" />
+                          <h1>Overall Report</h1>
                         </div>
-                    </div>
-                </div>
+                </div>  
 <?php
 error_reporting(E_ALL ^ E_DEPRECATED);
 $connect=mysql_connect("localhost","root","");
@@ -69,17 +66,6 @@ while($row=mysql_fetch_row($query3))
 		   {
         //echo "string";
 			   echo '<td>'. $row2[0] . '%</td>';
-         /*
-if($row2[0]<30)
-{
-echo "<td><span style='color:red;'>dropped</span></td>";
-
-}
-else
-echo "<td><span style='color:green;'>Promoted</span></td>";
-*/
-
-
 			   }
          
 			   echo"</tr>";

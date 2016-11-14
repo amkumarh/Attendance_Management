@@ -1,7 +1,7 @@
 
 <?php
  $pagetitle="Updating-Teacher's Record";
- include "includes/header.php";
+ include "header.php";
   $db = new db();
 
   ?>
@@ -39,14 +39,13 @@
             $update = $db->get_single_teacher($conn,"teacher_table",$t_id);
         ?>
         <?php foreach ($update as $key) { ?>
-               <div class="row">
+              <div class="row">
                     <div class="templatemo-line-header" style="margin-top: 0px;" >
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="span_blog txt_darkgrey txt_orange">Update The Teacher</span>
-                            <hr class="team_hr team_hr_right hr_gray" />
+                          <h1>Updation of Teacher's Details</h1>
                         </div>
                     </div>
-                </div>
+              </div>
         <?php if (isset($status)): ?>
 
             <div class="alert alert-success alert-dismissible" role="alert">
@@ -62,97 +61,56 @@
     <form method="post" role="form" action="teacher_update.php?teacher_id=<?php echo $key['teacher_id']; ?>">
     <div class="container">
     <div class="row">
-    <div class="col-lg-3">
           <div class="form-group">
             <label for="name" > First Name (*)</label>
-            <input type="text" class="form-control" required id="name" placeholder="First Name" name="name" value="<?php echo $key['first_name']; ?>">
+            <input type="text" class="form-control" required id="name" placeholder="First Name" name="name">
           </div>
-    </div>
-    <div class="col-lg-3">
+
+
           <div class="form-group">
-            <label for="lname" > Last Name</label>
-            <input type="text" class="form-control" required id="lname" placeholder="Last Name"  name="lname" value="<?php echo $key['last_name']; ?>">
+            <label for="lname"> Last Name(*)</label>
+            <input type="text" class="form-control" required id="lname" placeholder="Last Name"  name="lname">
           </div>
-    </div>
+
     </div>
     </div>
     <div class="container">
     <div class="row">
-    <div class="col-lg-3">
           <div class="form-group">
-            <label for="dob"> Date Of Birth </label>
-            <input type="date" class="form-control" id="dob" name="dob" value="<?php echo $key['dob']; ?>">
+            <label for="dob"> DOB </label>
+            <input type="date" class="form-control" id="dob" name="dob">
           </div>
-    </div>
-    <div class="col-lg-3">
+
           <div class="form-group">
-          <label for="gender" >Gender</label>
-           <select  class="form-control" name="gender" required id="sex" name="gender" >
-           <?php echo $key['gender']; ?>
+          <label for="gender">Gender</label>
+           <select  class="form-control" required id="sex" name="gender" >
            <option>-------select-------</option>
-           <option>Male</option>
-           <option>Female</option> 
+           <option value="male">Male</option>
+           <option value="female">Female</option> 
            </select>
           </div>
-     </div>
-     </div>
-     </div>
 
-     <div class="container">
+  </div>
+  </div>
+
+   <div class="container">
     <div class="row">
-    <div class="col-lg-3">
+
           <div class="form-group">
-            <label for="email">Email address </label>
-            <input type="email" class="form-control" required id="email" placeholder=" Email" name="email" value="<?php echo $key['email']; ?>">
+            <label for="email" >Email address </label>
+            <input type="email" class="form-control" required id="email" placeholder=" Email" name="email">
           </div>
-          </div>
-    <div class="col-lg-3">
-          <div class="form-group">
-            <label for="phone">Phone </label>
-            <input type="text" class="form-control" id="phone" placeholder="Phone Number" name="phone" value="<?php echo $key['phone']; ?>">
-          </div>
-    </div>
     </div>
     </div>
     <div class="container">
     <div class="row">
-    <div class="col-lg-3">
-           <div class="form-group">
-          <label for="degree" >Degree</label>
-           <select  class="form-control" name="degree"  required id="degree" name="degree">
-           <?php echo $key['degree']; ?>
-           <option>-------select-------</option>
-           <option >Bachelor</option>
-           <option >Master</option>
-           <option >M.Phil</option>
-           <option >P.HD</option>
-           </select>
-          </div>
+          <div class="form-group">
+            <label for="address">Course</label>
+            <input class="form-control" id="address" placeholder="Course" name="address">
           </div>
 
-    <div class="col-lg-3">
-          <div class="form-group">
-            <label for="salary"> Salary </label>
-            <input type="text" class="form-control" required id="salary" placeholder=" Enter salary"  name="salary" value="<?php echo $key['salary']; ?>">
-          </div>
-    </div>
-    </div>
-    </div>
-    <div class="container">
-    <div class="row">
-    <div class="col-lg-3">
-          <div class="form-group">
-            <label for="address">Address</label>
-            <textarea class="form-control" id="address" placeholder="Your address please" rows="3" name="address"><?php echo $key['address']; ?></textarea>
-          </div>
-          </div>
-    </div>
-    </div>
-
-          <div class="ui mini buttons col-sm-offset-3 col-sm-3">
-          <button type="submit" class="ui mini positive button" name="update">Update</button>
-          <div class="or"></div>
-          <a href="teacher.php" type="submit" class="ui mini button" name="back">Back</a>
+          <div "form-actions">
+          <button type="submit" name="update">Update</button>
           </div>
       
        </form>
@@ -160,4 +118,4 @@
 
            </div><!--form-container-->  
            </div><!--container-->	    
-<?php include "includes/footer.php"; ?>
+

@@ -19,11 +19,12 @@
               <div class="row">
                     <div class="templatemo-line-header" style="margin-top: 0px;" >
                         <div class="text-center">
-                          <h1>Student Records</h1>
+                            <hr class="team_hr team_hr_left hr_gray"/><span class="span_blog txt_darkgrey txt_orange">Students Records</span>
+                            <hr class="team_hr team_hr_right hr_gray" />
                         </div>
                     </div>
                 </div>
-                <p><a href="student_entry.php">Insert</a></p>
+                <p><a href="student_entry.php" class="ui blue tiny button "><i class="glyphicon glyphicon-plus"> </i>Insert</a></p>
                 <div class="table-responsive">
                  <table class="ui celled table table table-hover">
                   <thead>
@@ -62,9 +63,9 @@
             
             echo '<td width=250>';
             echo "<div class='ui mini buttons'>";
-            echo '<a  href="student_update.php?std_roll_no='.$post['std_roll_no'].'"> <i ></i>Update</a>';
+            echo '<a class="ui mini positive button" href="student_update.php?std_roll_no='.$post['std_roll_no'].'"> <i class="glyphicon glyphicon-pencil"></i>Update</a>';
             echo "<div class='or'></div>";    
-            echo '<a  href="student.php?std_roll_no='.$post['std_roll_no'].'">Delete</a>';
+            echo '<a class="ui mini red button" href="student.php?std_roll_no='.$post['std_roll_no'].'"><i class="glyphicon glyphicon-remove"> </i>Delete</a>';
             echo "</div>";
             echo '</td>';    
            echo '</tr>';  

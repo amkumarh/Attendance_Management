@@ -1,7 +1,7 @@
 
 <?php
  $pagetitle="Entering Subjects Detail In This Page ";
- include "includes/header.php"; ?>
+ include "header.php"; ?>
 
  <?php 
     if (isset($_POST['saved'])) {
@@ -24,13 +24,10 @@
  
 <div class="container">
 
-               <div class="row">
-                    <div class="templatemo-line-header" style="margin-top: 0px;" >
+              <div class="row">
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="span_blog txt_darkgrey txt_orange">Subject's Entry</span>
-                            <hr class="team_hr team_hr_right hr_gray" />
+                          <h1>Subjects's Entry</h1>
                         </div>
-                    </div>
                 </div>
                 
 
@@ -39,8 +36,6 @@
     <form action="#" method="post" role="form">
     <div class="container">
     <div class="row">
-          <div class="col-lg-4">
-
           <div class="form-group">
             <label for="subject" >Subject's Name </label>
            <select  class="form-control" required id="teacher" name="subject">
@@ -52,9 +47,7 @@
            <option >Others</option>
            </select>
           </div>
-          </div>
-    
-          <div class="col-lg-3">
+ 
 
           <div class="form-group">
           <label for="field" >Field</label>
@@ -67,13 +60,13 @@
            <option >P.HD</option>
            </select>
           </div>
-          </div>
+
 
          </div><!--col-row-->
           </div><!--col-container-->
            <div class="container">
           <div class="row">
-          <div class="col-lg-4">
+
 
           <div class="form-group">
             <label for="semester" >Semester </label>
@@ -89,10 +82,7 @@
            <option >8th</option>
            </select>
           </div>
-          </div>
-        
-      
-         <div class="col-lg-3">
+
 
           <div class="form-group">
           <label for="teacher" >Teacher Name</label>
@@ -105,14 +95,14 @@
            <option >Others</option>
            </select>
           </div>
-          </div>
+
       </div>
       </div>
 
-          <div class="ui mini buttons col-sm-offset-3 col-sm-3">
-          <button type="submit" class="ui mini positive button" name="saved">Register</button>
+          <div >
+          <button type="submit"  name="saved">Register</button>
           <div class="or"></div>
-          <button type="reset" class="ui mini red button" name="back">Clear</button>
+          <button type="reset" name="back">Clear</button>
           </div>
       
   </form>

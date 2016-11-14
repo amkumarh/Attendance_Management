@@ -1,7 +1,7 @@
 
 <?php
  $pagetitle="Teacher Records";
- include "includes/header.php"; ?>
+ include "header.php"; ?>
   <?php $db = new db(); ?>
 
 
@@ -16,14 +16,11 @@
                } ?>
 
               <div class="row">
-                    <div class="templatemo-line-header" style="margin-top: 0px;" >
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="span_blog txt_darkgrey txt_orange">Teacher Record</span>
-                            <hr class="team_hr team_hr_right hr_gray" />
+                          <h1>Teacher Records</h1>
                         </div>
-                    </div>
                 </div>
-               <p><a href="teacher_entry.php" class="ui blue tiny button "><i class="glyphicon glyphicon-plus"> </i>Insert</a></p>
+                <p><a href="teacher_entry.php">Insert</a></p>
                 <div class="table-responsive">
                  <table class="ui celled table table table-hover">
                   <thead>
@@ -62,9 +59,9 @@
             
             echo '<td width=250>';
             echo "<div class='ui mini buttons'>";
-            echo '<a class="ui mini positive button" href="teacher_update.php?teacher_id='.$post['teacher_id'].'"> <i class="glyphicon glyphicon-pencil"></i>Update</a>';
+            echo '<a href="teacher_update.php?teacher_id='.$post['teacher_id'].'">Update</a>';
             echo "<div class='or'></div>";    
-            echo '<a class="ui mini red button" href="teacher.php?teacher_id='.$post['teacher_id'].'"><i class="glyphicon glyphicon-remove"> </i>Delete</a>';
+            echo '<a href="teacher.php?teacher_id='.$post['teacher_id'].'">Delete</a>';
             echo "</div>";
             echo '</td>';    
            echo '</tr>';  
@@ -74,5 +71,4 @@
             </table>
             </div><!--table-responsive-->
             </div><!--row-->   
-           </div><!--container-->	  
-<?php include "includes/footer.php"; ?>
+           </div><!--container-->

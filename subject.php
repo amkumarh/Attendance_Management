@@ -1,21 +1,18 @@
 
 <?php
  $pagetitle="Subjects Information";
- include "includes/header.php"; ?>
+ include "header.php"; ?>
  <?php $db = new db(); ?>
 
 <div class="container">
 
 
               <div class="row">
-                    <div class="templatemo-line-header" style="margin-top: 0px;" >
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="span_blog txt_darkgrey txt_orange">Subjects Details</span>
-                            <hr class="team_hr team_hr_right hr_gray" />
+                          <h1>Subjects's Details</h1>
                         </div>
-                    </div>
                 </div>
-               <p><a href="subject_entry.php" class="ui blue tiny button "><i class="glyphicon glyphicon-plus"> </i>Insert</a></p>
+                <p><a href="subject_entry.php">Insert</a></p>
                 <div class="table-responsive">
                  <table class="ui celled table table table-hover">
                   <thead>
