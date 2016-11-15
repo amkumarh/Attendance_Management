@@ -14,14 +14,10 @@
       $dob = $_POST['dob'];
       $gender = $_POST['gender'];
       $email = $_POST['email'];
-      $phone= $_POST['phone'];
-      $add= $_POST['add'];
-      $session = $_POST['session'];
       $program= $_POST['program'];
-      $semester= $_POST['semester'];
-      $rollno= $_GET ['std_roll_no'];
+      $rollno= $_GET['std_roll_no'];
 
-      if($db->update_std($conn,$studentName,$dob,$gender,$email,$phone,$add,$rollno,$session, $program, $semester)){
+      if($db->update_std($conn,$studentName,$dob,$gender,$email,$program,$rollno)){
       $status= "Student's Information Updated Successfully";
       }
      ?>
@@ -66,7 +62,7 @@
 
           <div class="form-group">
             <label for="name"> Student Name(*) </label>
-            <input type="text" name="name" class="form-control"  value="<?php echo $key['student_name']; ?>" required id="name" placeholder="student Name" >
+            <input type="text" name="name" class="form-control" value="<?php echo $key['student_name']; ?>" required id="name" placeholder="student Name" >
           </div>
 
            
@@ -85,11 +81,11 @@
  
           <div class="form-group">
           <label for="gender">Gender(*)</label>
-           <select class="form-control" name="gender"  required id="gender" >
-           <?php echo $key['gender']; ?>
-           <option> </option>
-           <option value="male">Male</option>
-           <option value="female">Female</option> 
+           <select class="form-control" name="gender" required id="gender">
+
+           <option></option>
+           <option value="Male">Male</option>
+           <option value="Female">Female</option> 
            </select>
           </div>
  
@@ -97,7 +93,7 @@
           <!-- <div class="col-lg-6 push-right">  -->
 
           <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email">Email(*)</label>
             <input type="email" name="email" class="form-control" value="<?php echo $key['email']; ?>" required id="email" placeholder=" Email" >
           </div>
 
@@ -108,13 +104,14 @@
 
 
           <div class="form-group">
-          <label for="program">Program</label>
-           <select  class="form-control" name="program"  required id="program" name="program">
-          <option></option>
-           <option >B.Tech</option>
-           <option >M.Tech</option>
-           <option >Phd</option>
-           <option >BS</option>
+          <label for="program">Program(*)</label>
+           <select  class="form-control" required id="program" name="program">
+           
+           <option></option>
+           <option value="B.Tech">B.Tech</option>
+           <option value="M.Tech">M.Tech</option>
+           <option value="PhD">PhD</option>
+           <option value="BS">BS</option>
            </select>
           </div>  
 

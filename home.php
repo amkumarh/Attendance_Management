@@ -12,18 +12,16 @@ session_start();
             }
 
  $pagetitle="HOME";
+ include "header.php";
       ?>
-      
-            <?php
-         include "header.php";
-         ?>
+
 
         <div class="templatemo-welcome" id="templatemo-welcome" style="background-color: #A9A9A9; ">
             <div class="container">
                 <div class="templatemo-slogan text-center">
                     <span class="txt_darkgrey">Welcome to Attendance Managment Home Page</span>
                     <p class="txt_slogan">
-                </div>	
+                </div>  
             </div>
         </div>   
 
@@ -37,10 +35,10 @@ session_start();
                         <div class="clearfix"> </div>
                         <p style="font-size: 19px;">
                             This is our HTML/CSS/JS project for course CS455A
-                            at IIT Kanpur.We are building a web based application
+                            at IIT Kanpur. We are building a web based application
                             for attendance management.</p>
                         <p style="font-size: 20px; margin-top: 200">
-                          Amit Kumar 13095(Back-End)(Ise thodi bht php aati h )
+                          Amit Kumar 13095(Back-End)(Ise thodi boht php aati hai )
                         </p>
                         <p style="font-size: 20px;">
                         Shiv Shankar Azad 13655(Front-End)(Expert at making awesome front ends of websites)

@@ -17,25 +17,24 @@
                  <table class="ui celled table table table-hover">
                   <thead>
                     <tr>          
-                      <th>Subject No</th>
                       <th>Subject Name</th>
+                      <th>Credit</th>
                       <th>Teacher Name</th>
-                      <th>Field</th>
-                      <th>Semester</th>
+                      <th>Field</th>                      
                     </tr>
                   </thead>
       <tbody>
           <?php        
             $veiw = $db->get_all_subject($conn,'subject_table',10);
             foreach ($veiw as $post) {
-            $sub_no = $post['subject_no'];
+            //$sub_no = $post['subject_no'];
   
             echo '<tr>';        
-            echo '<td>'. $post['subject_no'] . '</td>';
             echo '<td>'. $post['subject_name'] . '</td>';
+            echo '<td>'. $post['credit'] . '</td>';
             echo '<td>'. $post['teacher_name'] . '</td>';
             echo '<td>'. $post['field'] . '</td>';
-            echo '<td>'. $post['semester'] . '</td>';
+            echo '</tr>';        
             }
            ?>
       </tbody>     

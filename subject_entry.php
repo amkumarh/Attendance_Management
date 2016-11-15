@@ -7,13 +7,13 @@
     if (isset($_POST['saved'])) {
     
       $subName = $_POST['subject'];
+      $credit= $_POST['credit'];
       $teacher= $_POST['teacher'];
       $field = $_POST['field'];
-      $semester= $_POST['semester'];
-
+      
       $db = new db();
 
-      if($db->subject_entry($conn,$subName,$teacher,$field,$semester)){
+      if($db->subject_entry($conn,$subName,$credit,$teacher,$field)){
       echo "Succesfully Saved";
       }
       else{
@@ -40,26 +40,25 @@
             <label for="subject" >Subject's Name </label>
            <select  class="form-control" required id="teacher" name="subject">
            <option>Select subject</option>
-           <option >C++</option>
-           <option >Java</option>
-           <option >MP</option>
-           <option >OOP</option>
-           <option >Others</option>
+           <option >CS210A: Data Structures and Algorithms</option>
+           <option >CS330: Operating Systems</option>
+           <option >CS340: Compiler Design</option>
+           <option >CS345A: Algorithm II</option>
+           <option >CS455A: Introduction to Software Engineering</option>
            </select>
           </div>
- 
 
           <div class="form-group">
-          <label for="field" >Field</label>
-           <select  class="form-control" required id="field" name="field">
-           <option>Select field</option>
-           <option >BSCS</option>
-           <option >BSSC</option>
-           <option >MCS</option> 
-           <option >Ms</option>
-           <option >P.HD</option>
+          <label for="credit" >Credits</label>
+           <select  class="form-control" required id="credit" name="credit">
+           <option></option>
+           <option >9</option>
+           <option >11</option>
+           <option >12</option>
+           <option >13</option>
            </select>
           </div>
+
 
 
          </div><!--col-row-->
@@ -69,33 +68,29 @@
 
 
           <div class="form-group">
-            <label for="semester" >Semester </label>
-           <select  class="form-control" required id="semester" name="semester">
-           <option>Select semester</option>
-           <option >1st</option>
-           <option >2nd</option>
-           <option >3rd</option> 
-           <option >4th</option>
-           <option >5th</option>
-           <option >6th</option> 
-           <option >7th</option>
-           <option >8th</option>
-           </select>
-          </div>
-
-
-          <div class="form-group">
           <label for="teacher" >Teacher Name</label>
            <select  class="form-control" required id="teacher" name="teacher">
            <option>Select teacher</option>
-           <option >Dr.Zubair</option>
-           <option >Sir javed</option>
-           <option >Miss Sadia Khattak</option>
-           <option >Miss Rabeal Zahra</option>
-           <option >Others</option>
+           <option >Dr. T. V. Prabhakar</option>
+           <option >Dr. Surender Baswana</option>
+           <option >Dr. Harish Karnick</option>
+           <option >Dr. Subhajit Roy</option>
+           <option >Dr. Mainak Chaudhuri</option>
+           <option >Dr. Raghunath Tewari</option>
            </select>
           </div>
 
+          <div class="form-group">
+          <label for="field" >Field</label>
+           <select  class="form-control" required id="field" name="field">
+           <option>Select field</option>
+           <option >B.Tech</option>
+           <option >M.Tech</option>
+           <option >PhD</option> 
+           <option >BS</option>
+           </select>
+          </div>
+          
       </div>
       </div>
 

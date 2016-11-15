@@ -32,21 +32,17 @@
 /**********************/
 //Students Entry
 /*********************/
- function std_entry($conn,$studentName,$dob,$gender,$email,$phone,$add,$session,$program,$semester){
+ function std_entry($conn,$studentName,$dob,$gender,$email,$program){
 	try{
 		
-		$query = "INSERT INTO student_table SET student_name = ?, dob = ?, gender = ?,email = ?,phone = ?, address = ?, Session=?,Program=?,Semester=?";
+		$query = "INSERT INTO student_table SET student_name = ?, dob = ?, gender = ?, email = ?,program = ?";
 
 		$entry = $conn->prepare($query);
 		$entry->bindValue(1, $studentName);
 		$entry->bindValue(2, $dob);
 		$entry->bindValue(3, $gender);
 		$entry->bindValue(4, $email);
-		$entry->bindValue(5, $phone);
-		$entry->bindValue(6, $add);
-		$entry->bindValue(7, $session);
-		$entry->bindValue(8, $semester);
-		$entry->bindValue(9, $program);
+		$entry->bindValue(5, $program);
 		
 		if($entry->execute())
 		{
@@ -68,10 +64,10 @@
 		//Gettintg all records
 		/*********************/
 
-function get_all_std($conn,$table,$limit){
+function get_all_std($conn,$table){
 
 			try {
-				$query = "SELECT * FROM {$table} ORDER BY  std_roll_no LIMIT {$limit}";
+				$query = "SELECT * FROM {$table} ORDER BY std_roll_no";
 					$stmt = $conn->prepare( $query );
 					$stmt->execute();
 					return $stmt->fetchAll();
@@ -92,7 +88,7 @@ function get_single_std($conn,$table,$id)
 		
 		try {
 
-			$query = "SELECT * FROM {$table} WHERE std_roll_no ={$id} ";
+			$query = "SELECT * FROM {$table} WHERE std_roll_no = {$id}";
 			$stmt = $conn->prepare($query);
 			// $stmt->bindParam(1, $id);
 			$stmt->execute();
@@ -126,21 +122,17 @@ function delete_std($conn,$table,$id){
 		//Update singel Student Record
 		/****************************/
 
-	function update_std($conn,$studentName,$dob,$gender,$email,$phone,$add,$rollno, $session, $program, $semester){
+	function update_std($conn,$studentName,$dob,$gender,$email,$program,$id){
 	try{
 		
-		$query = "UPDATE  student_table SET student_name = ?, dob = ?, gender = ?, email = ?, phone = ?, address = ? , Session = ?, Program = ?, Semester = ? WHERE std_roll_no = ?";
+		$query = "UPDATE student_table SET student_name = ?, dob = ?, gender = ?, email = ?, program = ? WHERE std_roll_no = ?";
 		$stmt = $conn->prepare($query);
 		$stmt->bindParam(1, $studentName);
 		$stmt->bindParam(2, $dob);
 		$stmt->bindParam(3, $gender);
 		$stmt->bindParam(4, $email);
-		$stmt->bindParam(5, $phone);
-		$stmt->bindParam(6, $add);
-		$stmt->bindParam(7, $session);
-		$stmt->bindParam(8, $program);
-		$stmt->bindParam(9, $semester);
-		$stmt->bindParam(10, $rollno);
+		$stmt->bindParam(5, $program);
+		$stmt->bindParam(6, $id);
 		if($stmt->execute()){
 			return "Record was Updated.";
 			die();
@@ -158,10 +150,10 @@ function delete_std($conn,$table,$id){
 	/**************************/
 	//Teachers Registration
 	/*************************/
- function teacher_entry($conn,$firstName,$lastName,$dob,$gender,$email,$phone,$degree,$salary,$address){
+ function teacher_entry($conn,$firstName,$lastName,$dob,$gender,$email,$course){
 	try{
 		
-		$query = "INSERT INTO teacher_table SET first_name = ?, last_name = ?, dob = ?, gender = ?,email = ?,phone = ?,degree = ?,salary = ? , address = ?";
+		$query = "INSERT INTO teacher_table SET first_name = ?, last_name = ?, dob = ?, gender = ?,email = ?,course = ?";
 
 		$entry = $conn->prepare($query);
 		$entry->bindValue(1, $firstName);
@@ -169,10 +161,7 @@ function delete_std($conn,$table,$id){
 		$entry->bindValue(3, $dob);
 		$entry->bindValue(4, $gender);
 		$entry->bindValue(5, $email);
-		$entry->bindValue(6, $phone);
-		$entry->bindValue(7, $degree);
-		$entry->bindValue(8, $salary);
-		$entry->bindValue(9, $address);
+		$entry->bindValue(6, $course);
 		
 		if($entry->execute())
 		{
@@ -194,9 +183,9 @@ function delete_std($conn,$table,$id){
 		/****************************/ 
 
 
-	function get_all_teacher($conn,$table,$limit){
+	function get_all_teacher($conn,$table){
 	       try {
-				$query = "SELECT * FROM {$table} ORDER BY  teacher_id LIMIT {$limit}";
+				$query = "SELECT * FROM {$table} ORDER BY teacher_id";
 					$stmt = $conn->prepare( $query );
 					$stmt->execute();
 					return $stmt->fetchAll();
@@ -215,7 +204,7 @@ function delete_std($conn,$table,$id){
 
 	 	function get_single_teacher($conn,$table,$id){
 	        try {
-				$query = "SELECT * FROM {$table} WHERE teacher_id= {$id}";
+				$query = "SELECT * FROM {$table} WHERE teacher_id = {$id}";
 					$stmt = $conn->prepare( $query );
 					$stmt->execute();
 					return $stmt->fetchAll();
@@ -232,7 +221,7 @@ function delete_std($conn,$table,$id){
 
     function delete_teacher_record($conn,$table,$t_id){
     	try{
-    		$query="DELETE FROM {$table} WHERE teacher_id={$t_id}";
+    		$query="DELETE FROM {$table} WHERE teacher_id = {$t_id}";
     		$stmt=$conn->prepare($query);
     		$stmt->execute();
 
@@ -247,21 +236,18 @@ function delete_std($conn,$table,$id){
 	//Updating Teacher's Record
 	/*****************************/
 
-	function update_teacher_record($conn,$firstName,$lastName,$dob,$gender,$email,$phone,$degree,$salary,$address,$id){
+	function update_teacher_record($conn,$firstName,$lastName,$dob,$gender,$email,$course,$id){
 	try{
 		
-		$query = "UPDATE  teacher_table SET first_name = ?, last_name = ?, dob = ?, gender = ?, email = ?, phone = ?, degree = ?, salary = ?, address = ? WHERE teacher_id = ?";
+		$query = "UPDATE  teacher_table SET first_name = ?, last_name = ?, dob = ?, gender = ?, email = ?, course = ? WHERE teacher_id = ?";
 		$stmt = $conn->prepare($query);
 		$stmt->bindParam(1, $firstName);
 		$stmt->bindParam(2, $lastName);
 		$stmt->bindParam(3, $dob);
 		$stmt->bindParam(4, $gender);
 		$stmt->bindParam(5, $email);
-		$stmt->bindParam(6, $phone);
-		$stmt->bindParam(7, $degree);
-		$stmt->bindParam(8, $salary);
-		$stmt->bindParam(9, $address);
-		$stmt->bindParam(10, $id);
+		$stmt->bindParam(6, $course);
+		$stmt->bindParam(7, $id);
 		if($stmt->execute()){
 			return "Record was Updated.";
 			die();
@@ -279,16 +265,16 @@ function delete_std($conn,$table,$id){
 	// Subject Entry
 	/****************************/ 
 
-	function subject_entry($conn,$subName,$teacher,$field,$semester){
+	function subject_entry($conn,$subName,$credit,$teacher,$field){
 	try{
 		
-		$query = "INSERT INTO subject_table SET subject_name=?, teacher_name = ?, field = ? , semester =?";
+		$query = "INSERT INTO subject_table SET subject_name=?, credit = ?, teacher_name = ?, field = ?";
 
 		$entry = $conn->prepare($query);
 		$entry->bindValue(1, $subName);
+		$entry->bindValue(4, $credit);
 		$entry->bindValue(2, $teacher);
 		$entry->bindValue(3, $field);
-		$entry->bindValue(4, $semester);	
 		if($entry->execute())
 		{
 			return "Successfully saved.";
@@ -312,7 +298,7 @@ function delete_std($conn,$table,$id){
 function get_all_subject($conn,$table,$limit){
 
 			try {
-				$query = "SELECT * FROM {$table} ORDER BY  subject_no LIMIT {$limit}";
+				$query = "SELECT * FROM {$table} ORDER BY  subject_name LIMIT {$limit}";
 					$stmt = $conn->prepare( $query );
 					$stmt->execute();
 					return $stmt->fetchAll();
@@ -413,12 +399,3 @@ function get_all_term($conn,$table,$limit){
 
 	
  	}
-
-
-      
-
-
-
-
-
-

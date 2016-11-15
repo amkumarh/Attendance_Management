@@ -33,17 +33,12 @@
                       <th>DOB</th>
                       <th>Gender</th>
                       <th>Email</th>
-                      <th>Phone</th>
-                      <th>Address</th>
-                      <th>Session</th>
                       <th>Program</th>
-                      <th>Semester</th>
-                      <th>Action</th>
                     </tr>
                   </thead>
      <tbody>
           <?php        
-            $view = $db->get_all_std($conn,'student_table',10);
+            $view = $db->get_all_std($conn,'student_table');
             foreach ($view as $post) {
             $std_id = $post['std_roll_no'];
   
@@ -54,21 +49,20 @@
             echo '<td>'. $post['dob'] . '</td>';
             echo '<td>'. $post['gender'] . '</td>';
             echo '<td>'. $post['email'] . '</td>';
-            echo '<td>'. $post['phone'] . '</td>';
-            echo '<td>'. $post['address'] . '</td>';
-            echo '<td>'. $post['Session'] . '</td>';
-            echo '<td>'. $post['Program'] . '</td>';
-            echo '<td>'. $post['Semester'] . '</td>';
+            echo '<td>'. $post['program'] . '</td>';
             
             echo '<td width=250>';
             echo "<div class='ui mini buttons'>";
-            echo '<a  href="student_update.php?std_roll_no='.$post['std_roll_no'].'"> <i ></i>Update</a>';
-            echo "<div class='or'></div>";    
+            echo '<a  href="student_update.php?std_roll_no='.$post['std_roll_no'].'">Update</a>';
+            echo "<div class='or'></div>";
             echo '<a  href="student.php?std_roll_no='.$post['std_roll_no'].'">Delete</a>';
             echo "</div>";
             echo '</td>';    
-           echo '</tr>';  
+          
+          echo '</tr>';
+            
             }
+
            ?>
       </tbody>     
             </table>

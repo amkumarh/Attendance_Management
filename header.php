@@ -22,10 +22,10 @@
                                 <li><a href="teacher.php" >Teachers Details</a></li>
                                 <li><a href="subject.php" >List of Subjects</a></li>
                                  <li><a href="SearchAttendReport.php" >Individual Attendance</a></li>
-                                <li><a href="AttendenceReport.php" >Overall Attendance</a></li>
-                                  <li><a href="AttendenceForm.php" >Take Attendance</a></li>
+                                <li><a href="AttendanceReport.php" >Overall Attendance</a></li>
+                                  <li><a href="AttendanceForm.php" >Take Attendance</a></li>
 
-                                <li><a href="login.php"  >Log Out</a></li>
+                                <li><a href="logout.php"  >Log Out</a></li>
                              </ul>
                         </div><!--/.nav-collapse -->
                     </div><!--/.container-fluid -->

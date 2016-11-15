@@ -9,15 +9,11 @@
       $dob = $_POST['dob'];
       $gender = $_POST['gender'];
       $email = $_POST['email'];
-      $phone= $_POST['phone'];
-      $add= $_POST['add'];
-      $session = $_POST['session'];
-      $program= $_POST['program'];
-      $semester= $_POST['semester'];
+      $program = $_POST['program'];
 
       $db = new db();
 
-      if($db->std_entry($conn,$studentName,$dob,$gender,$email,$phone,$add,$session,$program,$semester)){
+      if($db->std_entry($conn,$studentName,$dob,$gender,$email,$program)){
       echo "New Student added";
       }
       else{
@@ -40,7 +36,7 @@
 
           <div class="form-group">
             <label for="name" > Student Name(*) </label>
-            <input type="text" class="form-control" required id="name" placeholder="student name"  name="name">
+            <input type="text" class="form-control" required id="name" name="name">
           </div>
 
 
@@ -58,18 +54,18 @@
 
           <div class="form-group">
           <label for="gender"  >Gender(*)</label>
-           <select  class="form-control"   required id="sex" name="gender">
-           <option>-------select-------</option>
-           <option value="male">Male</option>
-           <option value="female">Female</option> 
+           <select class="form-control" required id="sex" name="gender">
+           <option></option>
+           <option value="Male">Male</option>
+           <option value="Female">Female</option> 
            </select>
           </div>
 
 
 
           <div class="form-group">
-            <label for="email"  >Email address </label>
-            <input type="email" class="form-control" required id="email" placeholder=" Email" name="email">
+            <label for="email"  >Email address(*) </label>
+            <input type="email" class="form-control" required id="email" placeholder="Email" name="email">
           </div>
           </div>
            </div>
@@ -77,13 +73,13 @@
 
 
           <div class="form-group">
-          <label for="program">Program</label>
-           <select  class="form-control" name="program"  required id="program" name="program">
+          <label for="program">Program(*) </label>
+           <select  class="form-control" required id="program" name="program">
           <option></option>
-           <option >B.Tech</option>
-           <option >M.Tech</option>
-           <option >Phd</option>
-           <option >BS</option>
+           <option value="B.Tech">B.Tech</option>
+           <option value="M.Tech">M.Tech</option>
+           <option value="PhD">PhD</option>
+           <option value="BS">BS</option>
            </select>
           </div>  
 

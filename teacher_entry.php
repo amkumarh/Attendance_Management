@@ -5,19 +5,16 @@
  <?php 
     if (isset($_POST['register'])) {
       
-      $firstName = $_POST['name'];
-      $lastName = $_POST['lname'];
+      $firstName = $_POST['first_name'];
+      $lastName = $_POST['last_name'];
       $dob = $_POST['dob'];
       $gender = $_POST['gender'];
       $email = $_POST['email'];
-      $phone= $_POST['phone'];
-      $degree= $_POST['degree'];
-      $salary= $_POST['salary'];
-      $address= $_POST['address'];
+      $course = $_POST['course'];
      
       $db = new db();
 
-      if($db->teacher_entry($conn,$firstName,$lastName,$dob,$gender,$email,$phone,$degree,$salary,$address)){
+      if($db->teacher_entry($conn,$firstName,$lastName,$dob,$gender,$email,$course)){
       echo "New entry was created";
       }
       else{
@@ -41,7 +38,7 @@
     <div class="container">
     <div class="row">
           <div class="form-group">
-            <label for="name" > First Name (*)</label>
+            <label for="name" > First Name(*)</label>
             <input type="text" class="form-control" required id="name" placeholder="First Name" name="name">
           </div>
 
@@ -63,9 +60,9 @@
           <div class="form-group">
           <label for="gender">Gender</label>
            <select  class="form-control" required id="sex" name="gender" >
-           <option>-------select-------</option>
-           <option value="male">Male</option>
-           <option value="female">Female</option> 
+           <option></option>
+           <option value="Male">Male</option>
+           <option value="Female">Female</option> 
            </select>
           </div>
 
@@ -76,15 +73,15 @@
 
           <div class="form-group">
             <label for="email" >Email address </label>
-            <input type="email" class="form-control" required id="email" placeholder=" Email" name="email">
+            <input type="email" class="form-control" required id="email" placeholder="Email" name="email">
           </div>
     </div>
     </div>
     <div class="container">
     <div class="row">
           <div class="form-group">
-            <label for="address">Course</label>
-            <input class="form-control" id="address" placeholder="Course" name="address">
+            <label for="course">Course</label>
+            <input type="text" class="form-control" required id="course" placeholder="Course" name="course">
           </div>
 
           <button type="submit"  name="register">Register</button>

@@ -1,121 +1,128 @@
 
-<?php
- $pagetitle="Updating-Teacher's Record";
- include "header.php";
-  $db = new db();
+  <?php 
+   $pagetitle="Update Teacher's Record";
+  include "header.php"; 
+  $db = new db(); 
 
   ?>
 
- <?php
-
+  <?php 
     if (isset($_POST['update'])):?>
       <?php
-      $firstName = $_POST['name'];
-      $lastName = $_POST['lname'];
+      $first_name = $_POST['first_name'];
+      $last_name = $_POST['last_name'];
       $dob = $_POST['dob'];
       $gender = $_POST['gender'];
       $email = $_POST['email'];
-      $phone= $_POST['phone'];
-      $degree= $_POST['degree'];
-      $salary= $_POST['salary'];
-      $address= $_POST['address'];
+      $course= $_POST['course'];
       $id= $_GET['teacher_id'];
-      if($db->update_teacher_record($conn,$firstName,$lastName,$dob,$gender,$email,$phone,$degree,$salary,$address,$id)){
-             $status= "Teacher's Information Updated Successfully";
-        }
-       ?>
-     <?php endif ?>   
 
-      <?php 
+      if($db->update_teacher_record($conn,$first_name,$last_name,$dob,$gender,$email,$course,$id)){
+      $status= "Teacher's Information Updated Successfully";
+      }
+     ?>
+     <?php endif ?> 
+
+     <?php 
         $t_id = array();
         if (isset($_GET['teacher_id'])) {
           $t_id = $_GET['teacher_id'];
         }
        ?>
 
-
 <div class="container">
+    
         <?php 
             $update = $db->get_single_teacher($conn,"teacher_table",$t_id);
         ?>
-        <?php foreach ($update as $key) { ?>
-              <div class="row">
-                    <div class="templatemo-line-header" style="margin-top: 0px;" >
-                        <div class="text-center">
-                          <h1>Updation of Teacher's Details</h1>
-                        </div>
-                    </div>
-              </div>
-        <?php if (isset($status)): ?>
+          <?php foreach ($update as $key) { ?>
+                <div class="row">
+             <div class="text-center">
+             <h1>Updation of Teacher's Details</h1>
+                </div>
+                </div>
+                </div>
+                <?php if (isset($status)): ?>
 
-            <div class="alert alert-success alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <?php echo $status; ?>
-            </div>
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <?php echo $status; ?>
+      </div>
 
 
-          <?php endif ?>                
+    <?php endif ?> 
 
 <div class="form-container">
 
     <form method="post" role="form" action="teacher_update.php?teacher_id=<?php echo $key['teacher_id']; ?>">
-    <div class="container">
-    <div class="row">
+       <div class="container">
+           <div class="row">
+
+
           <div class="form-group">
-            <label for="name" > First Name (*)</label>
-            <input type="text" class="form-control" required id="name" placeholder="First Name" name="name">
+            <label for="name"> First Name(*) </label>
+            <input type="text" name="first_name" class="form-control" value="<?php echo $key['first_name']; ?>" required id="first_name" placeholder="First Name" >
           </div>
 
 
           <div class="form-group">
             <label for="lname"> Last Name(*)</label>
-            <input type="text" class="form-control" required id="lname" placeholder="Last Name"  name="lname">
+            <input type="text" class="form-control" value="<?php echo $key['last_name']; ?>" required id="last_name" placeholder="Last Name"  name="last_name">
           </div>
-
-    </div>
-    </div>
-    <div class="container">
-    <div class="row">
-          <div class="form-group">
-            <label for="dob"> DOB </label>
-            <input type="date" class="form-control" id="dob" name="dob">
-          </div>
+           
 
           <div class="form-group">
-          <label for="gender">Gender</label>
-           <select  class="form-control" required id="sex" name="gender" >
-           <option>-------select-------</option>
-           <option value="male">Male</option>
-           <option value="female">Female</option> 
+            <label for="dob"> Date Of Birth </label>
+            <input type="date" name="dob" class="form-control" value="<?php echo $key['dob']; ?>" id="dob" >
+          </div>
+
+        </div>
+        </div> <!-- col-container-->
+       
+        <div class="container">
+           <div class="row">
+
+ 
+          <div class="form-group">
+          <label for="gender">Gender(*)</label>
+           <select class="form-control" name="gender" required id="gender">
+
+           <option></option>
+           <option value="Male">Male</option>
+           <option value="Female">Female</option> 
            </select>
           </div>
-
-  </div>
-  </div>
-
-   <div class="container">
-    <div class="row">
+ 
+          <!-- </div> -->
+          <!-- <div class="col-lg-6 push-right">  -->
 
           <div class="form-group">
-            <label for="email" >Email address </label>
-            <input type="email" class="form-control" required id="email" placeholder=" Email" name="email">
+            <label for="email">Email(*)</label>
+            <input type="email" name="email" class="form-control" value="<?php echo $key['email']; ?>" required id="email" placeholder=" Email" >
           </div>
-    </div>
-    </div>
-    <div class="container">
-    <div class="row">
+
+       </div>
+       </div><!-- col-container-->
+
+
+
+
           <div class="form-group">
-            <label for="address">Course</label>
-            <input class="form-control" id="address" placeholder="Course" name="address">
-          </div>
+          <label for="course">Course(*)</label>
+           <select  class="form-control" required id="course" name="course">
+           
+           <option></option>
+           <option value="B.Tech">B.Tech</option>
+           <option value="M.Tech">M.Tech</option>
+           <option value="PhD">PhD</option>
+           <option value="BS">BS</option>
+           </select>
+          </div>  
 
           <div "form-actions">
           <button type="submit" name="update">Update</button>
           </div>
-      
        </form>
-        <?php } ?>
-
-           </div><!--form-container-->  
-           </div><!--container-->	    
-
+   <?php } ?>
+          </div>
+     </div><!--container-->  
