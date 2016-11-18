@@ -39,9 +39,9 @@
                 <div class="row">
              <div class="text-center">
              <h1>Updation of Teacher's Details</h1>
-                </div>
-                </div>
-                </div>
+                </div>>
+
+                </div                </div>
                 <?php if (isset($status)): ?>
 
       <div class="alert alert-success alert-dismissible" role="alert">
@@ -55,7 +55,7 @@
 <div class="form-container">
 
     <form method="post" role="form" action="teacher_update.php?teacher_id=<?php echo $key['teacher_id']; ?>">
-       <div class="container">
+
            <div class="row">
 
 
@@ -77,9 +77,9 @@
           </div>
 
         </div>
-        </div> <!-- col-container-->
+
        
-        <div class="container">
+
            <div class="row">
 
  
@@ -101,23 +101,27 @@
             <input type="email" name="email" class="form-control" value="<?php echo $key['email']; ?>" required id="email" placeholder=" Email" >
           </div>
 
-       </div>
-       </div><!-- col-container-->
 
-
-
-
-          <div class="form-group">
+                    <div class="form-group">
           <label for="course">Course(*)</label>
            <select  class="form-control" required id="course" name="course">
-           
            <option></option>
-           <option value="B.Tech">B.Tech</option>
-           <option value="M.Tech">M.Tech</option>
-           <option value="PhD">PhD</option>
-           <option value="BS">BS</option>
+           <option>Select subject</option>
+           <option >CS210A: Data Structures and Algorithms</option>
+           <option >CS330: Operating Systems</option>
+           <option >CS340: Compiler Design</option>
+           <option >CS345A: Algorithm II</option>
+           <option >CS455A: Introduction to Software Engineering</option>
            </select>
           </div>  
+
+       </div>
+
+
+
+
+
+
 
           <div "form-actions">
           <button type="submit" name="update">Update</button>

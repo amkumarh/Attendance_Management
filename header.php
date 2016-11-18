@@ -8,7 +8,6 @@
         <title><?php echo $pagetitle; ?></title>
         
         <link href="css/bootstrap.css" rel='stylesheet' type='text/css'>
-        <link href="css/templatemo_style.css"  rel='stylesheet' type='text/css'>
     </head>   
     <body style="background-color: #A9A9A9;">
         <div>
@@ -27,8 +26,7 @@
 
                                 <li><a href="logout.php"  >Log Out</a></li>
                              </ul>
-                        </div><!--/.nav-collapse -->
-                    </div><!--/.container-fluid -->
-                </div><!--/.navbar -->
-            </div> <!-- /container -->
-        </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 

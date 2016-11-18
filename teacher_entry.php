@@ -1,6 +1,6 @@
 
 <?php
- $pagetitle="Teachers Registration Page";
+ $pagetitle="Teachers' Registration Page";
  include "header.php"; ?>
  <?php 
     if (isset($_POST['register'])) {
@@ -26,7 +26,7 @@
               <div class="row">
                     <div class="templatemo-line-header" style="margin-top: 0px;" >
                         <div class="text-center">
-                          <h1>Teacher Entry</h1>
+                          <h1>Teachers' Entry</h1>
                         </div>
                     </div>
               </div>
@@ -39,13 +39,13 @@
     <div class="row">
           <div class="form-group">
             <label for="name" > First Name(*)</label>
-            <input type="text" class="form-control" required id="name" placeholder="First Name" name="name">
+            <input type="text" class="form-control" required id="name" placeholder="First Name" name="first_name">
           </div>
 
 
           <div class="form-group">
             <label for="lname"> Last Name(*)</label>
-            <input type="text" class="form-control" required id="lname" placeholder="Last Name"  name="lname">
+            <input type="text" class="form-control" required id="lname" placeholder="Last Name"  name="last_name">
           </div>
 
     </div>
@@ -53,7 +53,7 @@
     <div class="container">
     <div class="row">
           <div class="form-group">
-            <label for="dob"> DOB </label>
+            <label for="dob"> Date of Birth </label>
             <input type="date" class="form-control" id="dob" name="dob">
           </div>
 

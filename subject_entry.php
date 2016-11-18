@@ -1,105 +1,87 @@
+  <?php 
+   $pagetitle="Entering Subjects Detail In This Page ";
+  include "header.php"; ?>
 
-<?php
- $pagetitle="Entering Subjects Detail In This Page ";
- include "header.php"; ?>
-
- <?php 
+  <?php 
     if (isset($_POST['saved'])) {
-    
-      $subName = $_POST['subject'];
-      $credit= $_POST['credit'];
-      $teacher= $_POST['teacher'];
-      $field = $_POST['field'];
-      
+
+      $studentName = $_POST['name'];
+      //$dob = $_POST['dob'];
+      $gender = $_POST['gender'];
+      $email = $_POST['email'];
+      $program = $_POST['program'];
+
       $db = new db();
 
-      if($db->subject_entry($conn,$subName,$credit,$teacher,$field)){
-      echo "Succesfully Saved";
+      if($db->subject_entry($conn,$studentName,$gender,$email,$program)){
+      echo "New Student added";
       }
       else{
-        echo "unable to Save.";
+        echo "sorry!!!!!";
       }
     }
      ?>  
- 
-<div class="container">
 
-              <div class="row">
-                        <div class="text-center">
-                          <h1>Subjects's Entry</h1>
-                        </div>
+<div class="container">
+             <div class="text-center">
+             <h1>Student Entry</h1>
                 </div>
-                
+          
 
 <div class="form-container">
-
     <form action="#" method="post" role="form">
-    <div class="container">
-    <div class="row">
-          <div class="form-group">
-            <label for="subject" >Subject's Name </label>
-           <select  class="form-control" required id="teacher" name="subject">
-           <option>Select subject</option>
-           <option >CS210A: Data Structures and Algorithms</option>
-           <option >CS330: Operating Systems</option>
-           <option >CS340: Compiler Design</option>
-           <option >CS345A: Algorithm II</option>
-           <option >CS455A: Introduction to Software Engineering</option>
-           </select>
-          </div>
+
+        <div class="container">
+          <div class="row">
 
           <div class="form-group">
-          <label for="credit" >Credits</label>
-           <select  class="form-control" required id="credit" name="credit">
-           <option></option>
-           <option >9</option>
-           <option >11</option>
-           <option >12</option>
-           <option >13</option>
-           </select>
+            <label for="name" > subject Name(*) </label>
+            <input type="text" class="form-control" required id="name" name="name">
           </div>
 
 
 
-         </div><!--col-row-->
-          </div><!--col-container-->
-           <div class="container">
+         </div>
+        </div>  <!-- col-container-->
+
+         <div class="container">
           <div class="row">
 
 
           <div class="form-group">
-          <label for="teacher" >Teacher Name</label>
-           <select  class="form-control" required id="teacher" name="teacher">
-           <option>Select teacher</option>
-           <option >Dr. T. V. Prabhakar</option>
-           <option >Dr. Surender Baswana</option>
-           <option >Dr. Harish Karnick</option>
-           <option >Dr. Subhajit Roy</option>
-           <option >Dr. Mainak Chaudhuri</option>
-           <option >Dr. Raghunath Tewari</option>
+          <label for="gender"  >credit(*)</label>
+           <select class="form-control" required id="sex" name="gender">
+           <option></option>
+           <option value="9">9</option>
+           <option value="10">10</option> 
            </select>
           </div>
+
+
 
           <div class="form-group">
-          <label for="field" >Field</label>
-           <select  class="form-control" required id="field" name="field">
-           <option>Select field</option>
-           <option >B.Tech</option>
-           <option >M.Tech</option>
-           <option >PhD</option> 
-           <option >BS</option>
-           </select>
+            <label for="email"  >teacher name(*) </label>
+            <input type="text" class="form-control" required id="email" placeholder="Email" name="email">
           </div>
-          
-      </div>
-      </div>
+          </div>
+           </div>
 
-          <div >
-          <button type="submit"  name="saved">Register</button>
-          <div class="or"></div>
+
+
+          <div class="form-group">
+          <label for="program">field(*) </label>
+           <select  class="form-control" required id="program" name="program">
+          <option></option>
+           <option value="B.Tech">B.Tech</option>
+           <option value="M.Tech">M.Tech</option>
+           <option value="PhD">PhD</option>
+           <option value="BS">BS</option>
+           </select>
+          </div>  
+
+          <button type="submit"  name="register">Register</button>
           <button type="reset" name="back">Clear</button>
-          </div>
-      
-  </form>
- </div><!--form-container-->
- </div> <!--container-->
+    
+       </form>
+       </div><!--form-container--> 
+       </div> <!--container--> 

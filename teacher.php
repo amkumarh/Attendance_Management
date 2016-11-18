@@ -1,6 +1,6 @@
 
   <?php
-  $pagetitle="teacher data";
+  $pagetitle="Teachers' data";
   // include "header2.php";
   include "header.php"; ?>
   <?php $db = new db(); ?>
@@ -31,7 +31,7 @@
                      <!--  <th>Std Id</th> -->
                       <th>First Name</th>
                       <th>Last Name</th>
-                      <th>DOB</th>
+                      <th>Date of Birth</th>
                       <th>Gender</th>
                       <th>Email</th>
                       <th>Course</th>

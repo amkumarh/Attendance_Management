@@ -2,6 +2,19 @@
    $pagetitle="Students Registration";
   include "header.php"; ?>
 
+   <?php 
+      $conn = "";
+      try {
+
+        $conn = new PDO('mysql:host=localhost;dbname=attendance_db;','root','');
+
+      } catch (Exception $e) {
+
+        echo 'ERROR'.$e->getMessage();
+      }
+      ?>
+
+
   <?php 
     if (isset($_POST['register'])) {
 
@@ -11,14 +24,24 @@
       $email = $_POST['email'];
       $program = $_POST['program'];
 
-      $db = new db();
+       
+    $query = "INSERT INTO student_table SET student_name = ?, dob = ?, gender = ?, email = ?,program = ?";
 
-      if($db->std_entry($conn,$studentName,$dob,$gender,$email,$program)){
-      echo "New Student added";
-      }
-      else{
-        echo "sorry!!!!!";
-      }
+    $entry = $conn->prepare($query);
+    $entry->bindValue(1, $studentName);
+    $entry->bindValue(2, $dob);
+    $entry->bindValue(3, $gender);
+    $entry->bindValue(4, $email);
+    $entry->bindValue(5, $program);
+    
+    if($entry->execute())
+    {
+      echo "Successfully registered.";
+      die();
+    }
+    else{
+      echo "Unable to register! Try again please.";
+    }
     }
      ?>  
 
@@ -87,5 +110,5 @@
           <button type="reset" name="back">Clear</button>
     
        </form>
-       </div><!--form-container--> 
-       </div> <!--container--> 
+       </div>
+       </div> 

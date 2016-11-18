@@ -5,6 +5,7 @@
   include "header.php"; ?>
   <?php $db = new db(); ?>
   
+  
 <div class="container">
 <?php
           if (isset($_GET['std_roll_no'])) {
@@ -17,7 +18,7 @@
 ?>
             
               <div class="row">
-                    <div class="templatemo-line-header" style="margin-top: 0px;" >
+                    <div class="templatemo-line-header" style="margin-top: 0px; background-color: #ffffff" >
                         <div class="text-center">
                           <h1>Student Records</h1>
                         </div>

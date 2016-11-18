@@ -25,13 +25,13 @@ include("config.php");
                       <th>StudentRollNumber</th>
                       <th>StudentName</th>
                       <th>Date</th>
-                      <th>Percentage</th>
+                      <th>Attendance</th>
                       
                     </tr>
                   </thead>
      <tbody>
           <?php        
-            $query=mysql_query("Select (Select count(*) from tbl_attendence Where attendance='P')/ count(studentrollNumber) *100 as Percentage from tbl_attendance ");
+            //$query=mysql_query("Select (Select count(*) from tbl_attendence Where attendance='P')/ count(studentrollNumber) *100 as Percentage from tbl_attendance ");
             //echo "$query";
 			$query3=mysql_query("Select * from tbl_attendance T 
 inner join student_table st on st.std_roll_no=T.StudentRollNumber
@@ -50,15 +50,16 @@ while($row=mysql_fetch_row($query3))
   echo"<tr>";
            echo '<td>'. $row[1] . '</td>';
             echo '<td>'. $row[6] . '</td>';
-			//echo '<td>'. $row[14] . '</td>';
-			//echo '<td>'. $row[13] . '</td>';
-			echo '<td>'. $row[4] . '</td>';
+			     echo '<td>'. $row[4] . '</td>';
+           echo '<td>'. $row[3] . '</td>';
+           /*
            $query=mysql_query("Select  (select count(*) from tbl_attendance where Attendance='P' and studentRollNumber='$row[1]' and subjectId='$row[2]')/(Select count(attendance) from tbl_attendance where studentRollNumber='$row[1]' and subjectId='$row[2]')*100 as per from tbl_attendance where studentrollNumber='$row[1]' and subjectid='$row[2]' group by per asc ");
 		   
 		while ($row2=mysql_fetch_row($query))
 		   {
 			   echo '<td>'. $row2[0] . '%</td>';
 			   }
+         */
 			   echo"</tr>";
 }
            ?>

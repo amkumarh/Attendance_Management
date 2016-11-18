@@ -3,7 +3,9 @@ error_reporting(E_ALL & ~ E_NOTICE);
 session_start();
  $pagetitle="LogIn Page";
 ?>
+
 <?php
+
        if ($_POST['submit']){
         include 'connection.php';
         $username=($_POST['username']);
